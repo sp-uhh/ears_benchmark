@@ -1,0 +1,5282 @@
+{
+    "p102": {
+        "emo_adoration_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_adoration_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_amazement_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_amazement_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_amusement_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_amusement_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_anger_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_anger_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_confusion_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_confusion_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_contentment_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_contentment_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_cuteness_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_cuteness_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_desire_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_desire_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_disappointment_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_disappointment_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_disgust_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_disgust_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_distress_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_distress_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_embarassment_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_embarassment_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_extasy_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_extasy_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_fear_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_fear_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_guilt_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_guilt_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_interest_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_interest_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_neutral_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_neutral_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_pain_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_pain_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_pride_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_pride_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_realization_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_realization_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_relief_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_relief_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_sadness_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_sadness_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_serenity_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_serenity_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "freeform_speech_01": [
+            [
+                16800,
+                752762
+            ],
+            [
+                752762,
+                1428219
+            ],
+            [
+                1428219,
+                2196800
+            ],
+            [
+                2196800,
+                2859258
+            ],
+            [
+                2859258,
+                3469169
+            ],
+            [
+                3469169,
+                4357130
+            ],
+            [
+                4357130,
+                4810503
+            ],
+            [
+                4810503,
+                5396345
+            ],
+            [
+                5396345,
+                6163033
+            ],
+            [
+                6163033,
+                6996196
+            ],
+            [
+                6996196,
+                7363377
+            ],
+            [
+                7363377,
+                7873905
+            ],
+            [
+                7873905,
+                -1
+            ]
+        ],
+        "rainbow_01_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_01_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_01_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_01_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_01_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_01_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_01_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_02_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_02_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_02_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_02_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_02_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_02_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_02_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_03_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_03_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_03_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_03_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_03_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_03_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_03_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_04_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_04_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_04_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_04_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_04_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_04_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_04_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_05_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_05_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_05_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_05_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_05_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_05_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_05_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_06_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_06_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_06_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_06_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_06_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_06_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_06_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_07_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_07_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_07_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_07_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_07_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_07_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_07_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_08_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_08_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_08_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_08_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_08_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_08_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_08_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_01_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_01_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_01_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_01_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_01_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_01_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_01_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_02_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_02_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_02_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_02_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_02_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_02_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_02_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_03_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_04_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_05_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_06_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_07_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_08_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_09_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_10_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_11_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_12_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_13_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_14_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_15_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_16_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_17_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_18_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_19_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_20_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_21_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_22_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_23_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_24_regular": [
+            [
+                0,
+                -1
+            ]
+        ]
+    },
+    "p103": {
+        "emo_adoration_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_adoration_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_amazement_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_amazement_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_amusement_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_amusement_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_anger_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_anger_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_confusion_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_confusion_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_contentment_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_contentment_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_cuteness_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_cuteness_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_desire_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_desire_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_disappointment_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_disappointment_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_disgust_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_disgust_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_distress_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_distress_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_embarassment_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_embarassment_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_extasy_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_extasy_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_fear_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_fear_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_guilt_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_guilt_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_interest_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_interest_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_neutral_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_neutral_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_pain_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_pain_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_pride_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_pride_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_realization_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_realization_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_relief_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_relief_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_sadness_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_sadness_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_serenity_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_serenity_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "freeform_speech_01": [
+            [
+                16800,
+                680286
+            ],
+            [
+                680286,
+                1474510
+            ],
+            [
+                1474510,
+                2247995
+            ],
+            [
+                2247995,
+                2895820
+            ],
+            [
+                2895820,
+                3569885
+            ],
+            [
+                3569885,
+                4686719
+            ],
+            [
+                4686719,
+                5798302
+            ],
+            [
+                5798302,
+                6220569
+            ],
+            [
+                6220569,
+                6741496
+            ],
+            [
+                6741496,
+                7169025
+            ],
+            [
+                7169025,
+                7646542
+            ],
+            [
+                8049076,
+                -1
+            ]
+        ],
+        "rainbow_01_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_01_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_01_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_01_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_01_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_01_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_01_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_02_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_02_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_02_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_02_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_02_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_02_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_02_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_03_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_03_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_03_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_03_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_03_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_03_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_03_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_04_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_04_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_04_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_04_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_04_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_04_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_04_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_05_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_05_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_05_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_05_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_05_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_05_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_05_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_06_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_06_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_06_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_06_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_06_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_06_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_06_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_07_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_07_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_07_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_07_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_07_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_07_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_07_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_08_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_08_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_08_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_08_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_08_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_08_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_08_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_01_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_01_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_01_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_01_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_01_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_01_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_01_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_02_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_02_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_02_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_02_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_02_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_02_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_02_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_03_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_04_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_05_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_06_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_07_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_08_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_09_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_10_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_11_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_12_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_13_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_14_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_15_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_16_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_17_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_18_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_19_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_20_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_21_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_22_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_23_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_24_regular": [
+            [
+                0,
+                -1
+            ]
+        ]
+    },
+    "p104": {
+        "emo_adoration_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_adoration_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_amazement_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_amazement_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_amusement_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_amusement_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_anger_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_anger_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_confusion_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_confusion_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_contentment_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_contentment_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_cuteness_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_cuteness_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_desire_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_desire_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_disappointment_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_disappointment_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_disgust_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_disgust_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_distress_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_distress_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_embarassment_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_embarassment_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_extasy_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_extasy_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_fear_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_fear_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_guilt_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_guilt_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_interest_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_interest_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_neutral_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_neutral_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_pain_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_pain_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_pride_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_pride_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_realization_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_realization_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_relief_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_relief_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_sadness_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_sadness_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_serenity_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_serenity_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "freeform_speech_01": [
+            [
+                0,
+                969261
+            ],
+            [
+                969261,
+                1514750
+            ],
+            [
+                1514750,
+                2097182
+            ],
+            [
+                2097182,
+                2635968
+            ],
+            [
+                2635968,
+                3079749
+            ],
+            [
+                3079749,
+                3393154
+            ],
+            [
+                3393154,
+                4176189
+            ],
+            [
+                5032360,
+                5906395
+            ],
+            [
+                5906395,
+                6697207
+            ],
+            [
+                6940713,
+                8056149
+            ],
+            [
+                8056149,
+                8688397
+            ]
+        ],
+        "rainbow_01_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_01_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_01_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_01_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_01_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_01_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_01_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_02_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_02_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_02_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_02_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_02_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_02_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_02_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_03_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_03_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_03_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_03_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_03_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_03_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_03_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_04_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_04_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_04_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_04_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_04_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_04_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_04_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_05_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_05_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_05_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_05_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_05_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_05_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_05_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_06_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_06_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_06_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_06_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_06_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_06_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_06_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_07_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_07_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_07_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_07_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_07_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_07_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_07_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_08_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_08_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_08_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_08_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_08_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_08_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_08_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_01_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_01_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_01_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_01_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_01_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_01_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_01_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_02_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_02_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_02_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_02_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_02_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_02_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_02_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_03_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_04_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_05_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_06_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_07_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_08_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_09_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_10_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_11_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_12_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_13_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_14_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_15_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_16_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_17_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_18_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_19_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_20_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_21_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_22_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_23_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_24_regular": [
+            [
+                0,
+                -1
+            ]
+        ]
+    },
+    "p105": {
+        "emo_adoration_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_adoration_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_amazement_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_amazement_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_amusement_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_amusement_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_anger_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_anger_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_confusion_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_confusion_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_contentment_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_contentment_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_cuteness_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_cuteness_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_desire_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_desire_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_disappointment_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_disappointment_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_disgust_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_disgust_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_distress_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_distress_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_embarassment_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_embarassment_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_extasy_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_extasy_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_fear_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_fear_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_guilt_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_guilt_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_interest_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_interest_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_neutral_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_neutral_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_pain_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_pain_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_pride_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_pride_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_realization_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_realization_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_relief_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_relief_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_sadness_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_sadness_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_serenity_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_serenity_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "freeform_speech_01": [
+            [
+                0,
+                833155
+            ],
+            [
+                833155,
+                2102054
+            ],
+            [
+                2102054,
+                2598316
+            ],
+            [
+                2598316,
+                3615049
+            ],
+            [
+                3615049,
+                4575296
+            ],
+            [
+                4575296,
+                5618254
+            ],
+            [
+                5618254,
+                6413081
+            ],
+            [
+                6762078,
+                7625591
+            ],
+            [
+                7625591,
+                8614674
+            ]
+        ],
+        "rainbow_01_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_01_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_01_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_01_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_01_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_01_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_01_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_02_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_02_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_02_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_02_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_02_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_02_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_02_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_03_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_03_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_03_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_03_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_03_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_03_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_03_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_04_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_04_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_04_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_04_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_04_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_04_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_04_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_05_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_05_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_05_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_05_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_05_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_05_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_05_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_06_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_06_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_06_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_06_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_06_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_06_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_06_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_07_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_07_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_07_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_07_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_07_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_07_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_07_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_08_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_08_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_08_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_08_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_08_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_08_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_08_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_01_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_01_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_01_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_01_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_01_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_01_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_01_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_02_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_02_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_02_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_02_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_02_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_02_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_02_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_03_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_04_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_05_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_06_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_07_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_08_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_09_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_10_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_11_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_12_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_13_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_14_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_15_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_16_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_17_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_18_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_19_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_20_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_21_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_22_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_23_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_24_regular": [
+            [
+                0,
+                -1
+            ]
+        ]
+    },
+    "p106": {
+        "emo_adoration_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_adoration_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_amazement_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_amazement_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_amusement_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_amusement_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_anger_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_anger_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_confusion_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_confusion_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_contentment_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_contentment_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_cuteness_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_cuteness_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_desire_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_desire_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_disappointment_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_disappointment_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_disgust_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_disgust_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_distress_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_distress_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_embarassment_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_embarassment_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_extasy_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_extasy_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_fear_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_fear_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_guilt_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_guilt_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_interest_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_interest_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_neutral_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_neutral_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_pain_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_pain_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_pride_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_pride_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_realization_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_realization_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_relief_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_relief_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_sadness_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_sadness_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_serenity_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_serenity_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "freeform_speech_01": [
+            [
+                16800,
+                816808
+            ],
+            [
+                816808,
+                1622898
+            ],
+            [
+                1622898,
+                2294137
+            ],
+            [
+                2294137,
+                3084430
+            ],
+            [
+                3084430,
+                3720983
+            ],
+            [
+                3720983,
+                4171670
+            ],
+            [
+                4171670,
+                4711178
+            ],
+            [
+                4711178,
+                5372411
+            ],
+            [
+                5372411,
+                5858426
+            ],
+            [
+                5858426,
+                6241071
+            ],
+            [
+                6241071,
+                6982529
+            ],
+            [
+                6982529,
+                7512142
+            ],
+            [
+                7512142,
+                8186074
+            ],
+            [
+                8186074,
+                8649142
+            ]
+        ],
+        "rainbow_01_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_01_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_01_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_01_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_01_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_01_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_01_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_02_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_02_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_02_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_02_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_02_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_02_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_02_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_03_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_03_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_03_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_03_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_03_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_03_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_03_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_04_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_04_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_04_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_04_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_04_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_04_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_04_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_05_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_05_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_05_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_05_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_05_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_05_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_05_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_06_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_06_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_06_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_06_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_06_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_06_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_06_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_07_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_07_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_07_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_07_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_07_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_07_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_07_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_08_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_08_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_08_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_08_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_08_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_08_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_08_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_01_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_01_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_01_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_01_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_01_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_01_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_01_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_02_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_02_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_02_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_02_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_02_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_02_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_02_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_03_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_04_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_05_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_06_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_07_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_08_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_09_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_10_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_11_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_12_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_13_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_14_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_15_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_16_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_17_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_18_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_19_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_20_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_21_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_22_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_23_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_24_regular": [
+            [
+                0,
+                -1
+            ]
+        ]
+    },
+    "p107": {
+        "emo_adoration_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_adoration_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_amazement_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_amazement_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_amusement_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_amusement_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_anger_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_anger_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_confusion_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_confusion_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_contentment_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_contentment_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_cuteness_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_cuteness_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_desire_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_desire_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_disappointment_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_disappointment_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_disgust_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_disgust_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_distress_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_distress_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_embarassment_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_embarassment_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_extasy_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_extasy_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_fear_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_fear_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_guilt_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_guilt_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_interest_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_interest_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_neutral_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_neutral_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_pain_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_pain_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_pride_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_pride_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_realization_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_realization_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_relief_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_relief_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_sadness_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_sadness_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_serenity_freeform": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "emo_serenity_sentences": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "freeform_speech_01": [
+            [
+                16800,
+                905639
+            ],
+            [
+                905639,
+                1777262
+            ],
+            [
+                1777262,
+                2196551
+            ],
+            [
+                2251222,
+                2837840
+            ],
+            [
+                2837840,
+                3648690
+            ],
+            [
+                3648690,
+                4043157
+            ],
+            [
+                4144763,
+                4537776
+            ],
+            [
+                4561473,
+                5127590
+            ],
+            [
+                5127590,
+                5870637
+            ],
+            [
+                5930309,
+                6701571
+            ],
+            [
+                6762735,
+                7516096
+            ],
+            [
+                7516096,
+                8021817
+            ],
+            [
+                8021817,
+                -1
+            ]
+        ],
+        "rainbow_01_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_01_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_01_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_01_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_01_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_01_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_01_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_02_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_02_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_02_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_02_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_02_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_02_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_02_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_03_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_03_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_03_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_03_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_03_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_03_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_03_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_04_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_04_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_04_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_04_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_04_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_04_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_04_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_05_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_05_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_05_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_05_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_05_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_05_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_05_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_06_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_06_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_06_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_06_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_06_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_06_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_06_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_07_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_07_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_07_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_07_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_07_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_07_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_07_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_08_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_08_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_08_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_08_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_08_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_08_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "rainbow_08_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_01_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_01_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_01_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_01_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_01_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_01_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_01_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_02_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_02_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_02_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_02_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_02_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_02_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_02_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_03_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_04_whisper": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_05_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_06_loud": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_07_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_08_slow": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_09_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_10_fast": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_11_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_12_highpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_13_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_14_lowpitch": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_15_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_16_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_17_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_18_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_19_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_20_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_21_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_22_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_23_regular": [
+            [
+                0,
+                -1
+            ]
+        ],
+        "sentences_24_regular": [
+            [
+                0,
+                -1
+            ]
+        ]
+    }
+}
