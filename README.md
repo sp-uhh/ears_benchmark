@@ -21,7 +21,7 @@ bash download_ears_wham.sh <data_dir>
 Then you can generate the EARS-WHAM dataset with the following command:
 
 ```
-python generate_ears_wham.py --data_dir <data_dir>
+python generate_ears_wham.py --data_dir <data_dir> --copy_clean
 ```
 
 ## Generate EARS-Reverb
@@ -35,7 +35,7 @@ bash download_ears_reverb.sh <data_dir>
 Then you can generate the EARS-Reverb dataset with the following command:
 
 ```
-python generate_ears_reverb.py --data_dir <data_dir>
+python generate_ears_reverb.py --data_dir <data_dir> --copy_clean
 
 ```
 
