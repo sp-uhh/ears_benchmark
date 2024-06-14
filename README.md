@@ -43,7 +43,7 @@ python generate_ears_reverb.py --data_dir <data_dir>
 
 The code and dataset are released under [CC-NC 4.0 International license](https://github.com/facebookresearch/ears_dataset/blob/main/LICENSE).
 
-## References
+# References
 
 If you use the dataset or any derivative of it, please cite our [research paper](https://arxiv.org/abs/2406.06185):
 
