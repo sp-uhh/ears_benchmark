@@ -27,22 +27,26 @@ fi
 if [ -d "$data_dir/ACE-Challenge" ]; then
     echo "[Warning] Skip download of ACE-Challenge. The directory $data_dir/ACE-Challenge arleady exists."
 else
-    if [ -f "$data_dir/ACE-Challenge.zip" ]; then
-        echo "[Warning] $data_dir/ACE-Challenge.zip already exists. Skip download."
-    else
-        echo "Download ACE-Challenge noise dataset to $data_dir/ACE-Challenge.zip"
-        wget -O $data_dir/ACE-Challenge.zip https://zenodo.org/api/records/6257551/files-archive
-    fi
     mkdir $data_dir/ACE-Challenge;
-    echo "Extract $data_dir/ACE-Challenge.zip to $data_dir/ACE-Challenge"
-    unzip $data_dir/ACE-Challenge.zip -d $data_dir/ACE-Challenge
-    rm $data_dir/ACE-Challenge.zip 
-    for file in `ls $data_dir/ACE-Challenge/*.tbz2`; 
-    do 
-        echo "Extract $file to $data_dir/ACE-Challenge"
-        tar -xf $file -C $data_dir/ACE-Challenge/ 
+    wget -P $data_dir/ACE-Challenge/ https://zenodo.org/records/6257551/files/ACE_Corpus_Data.tbz2
+    wget -P $data_dir/ACE-Challenge/ https://zenodo.org/records/6257551/files/ACE_Corpus_instructions_v01.pdf
+    wget -P $data_dir/ACE-Challenge/ https://zenodo.org/records/6257551/files/ACE_Corpus_Microphone_arrangements_v02.pdf
+    wget -P $data_dir/ACE-Challenge/ https://zenodo.org/records/6257551/files/ACE_Corpus_RIRN_Chromebook.tbz2
+    wget -P $data_dir/ACE-Challenge/ https://zenodo.org/records/6257551/files/ACE_Corpus_RIRN_Crucif.tbz2
+    wget -P $data_dir/ACE-Challenge/ https://zenodo.org/records/6257551/files/ACE_Corpus_RIRN_EM32.tbz2
+    wget -P $data_dir/ACE-Challenge/ https://zenodo.org/records/6257551/files/ACE_Corpus_RIRN_Lin8Ch.tbz2
+    wget -P $data_dir/ACE-Challenge/ https://zenodo.org/records/6257551/files/ACE_Corpus_RIRN_Mobile.tbz2
+    wget -P $data_dir/ACE-Challenge/ https://zenodo.org/records/6257551/files/ACE_Corpus_RIRN_Single.tbz2
+    wget -P $data_dir/ACE-Challenge/ https://zenodo.org/records/6257551/files/ACE_Corpus_Software.tbz2
+    wget -P $data_dir/ACE-Challenge/ https://zenodo.org/records/6257551/files/ACE_Corpus_Speech.tbz2
+    wget -P $data_dir/ACE-Challenge/ https://zenodo.org/records/6257551/files/ACE_TASLP_ref.bib
+    for file in "$data_dir/ACE-Challenge/"*.tbz2; do
+        echo "Extract $file"
+        extract_dir="${file%%.tbz2}"
+        mkdir -p "$extract_dir"
+        tar -jxvf "$file" -C "$extract_dir" > /dev/null
+        rm "$file"
     done
-    rm $data_dir/ACE-Challenge/*.tbz2
 fi
 
 # Download AIR dataset
@@ -121,12 +125,11 @@ fi
 if [ -d "$data_dir/Palimpsest" ]; then
     echo "[Warning] Skip download of Palimpsest. The directory $data_dir/Palimpsest arleady exists."
 else
-    # mkdir $data_dir/Palimpsest
     gdown 1utDu8wCdpj6fj0AlXNMXMIeWgn93arEF -O $data_dir/Palimpsest.zip
-    n_files=`unzip -l $data_dir/Palimpsest.zip | tail -n 1 | xargs echo -n | cut -d' ' -f2`
-    unzip -f $data_dir/Palimpsest.zip | tqdm --unit files --unit_scale --total $n_files > /dev/null
+    unzip -o $data_dir/Palimpsest.zip -d $data_dir > /dev/null
     mv $data_dir/'Sonic Palimpsest -Impulse Response Library' $data_dir/Palimpsest
     rm $data_dir/Palimpsest.zip
+    rm -r $data_dir/__MACOSX
 fi
 
 # Download ARNI dataset
