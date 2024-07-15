@@ -27,7 +27,7 @@ fi
 if [ -d "$data_dir/ACE-Challenge" ]; then
     echo "[Warning] Skip download of ACE-Challenge. The directory $data_dir/ACE-Challenge arleady exists."
 else
-    mkdir $data_dir/ACE-Challenge;
+    mkdir $data_dir/ACE-Challenge
     wget -P $data_dir/ACE-Challenge/ https://zenodo.org/records/6257551/files/ACE_Corpus_Data.tbz2
     wget -P $data_dir/ACE-Challenge/ https://zenodo.org/records/6257551/files/ACE_Corpus_instructions_v01.pdf
     wget -P $data_dir/ACE-Challenge/ https://zenodo.org/records/6257551/files/ACE_Corpus_Microphone_arrangements_v02.pdf
@@ -59,7 +59,7 @@ else
         echo "Download AIR noise dataset to $data_dir/AIR.zip"
         wget -O $data_dir/AIR.zip https://www.iks.rwth-aachen.de/fileadmin/user_upload/downloads/forschung/tools-downloads/air_database_release_1_4.zip
     fi
-    mkdir $data_dir/AIR;
+    mkdir $data_dir/AIR
     echo "Extract $data_dir/AIR.zip to $data_dir/AIR"
     n_files=`unzip -l $data_dir/AIR.zip | tail -n 1 | xargs echo -n | cut -d' ' -f2`
     unzip $data_dir/AIR.zip -d $data_dir/AIR | tqdm --unit files --unit_scale --total $n_files > /dev/null
@@ -96,10 +96,17 @@ fi
 if [ -d "$data_dir/dEchorate" ]; then
     echo "[Warning] Skip download of dEchorate. The directory $data_dir/dEchorate arleady exists."
 else
-    gdown --folder https://drive.google.com/drive/folders/1yGTh_BjnVNwDgBsn5mkuW3i4rJIgZwlS -O $data_dir/
+    mkdir $data_dir/dEchorate
+    mkdir $data_dir/dEchorate/sofa
+    gdown 1pFEI_KEwZROR1EXUHbx7OMLryY6NN47O -O $data_dir/dEchorate/
+    gdown 1fsDNVwalMYrI9pq0Q3BI7PFBr0Z_L9PB -O $data_dir/dEchorate/
+    gdown 1sErbvkuvSwoBlHXz7ssQM8VhrAD1_4mj -O $data_dir/dEchorate/
+    gdown 1zFs4P2pRkX-IcTlvGMoc7lLca9xihJNW -O $data_dir/dEchorate/
+    gdown --folder 1iKjhy7QvdQ38HwxQ5ZCBI-eCQTuVLlgt -O $data_dir/dEchorate/sofa
+    echo "Extract $data_dir/dEchorate/sofa/*.zip to $data_dir/dEchorate/sofa/"
     for file in `ls $data_dir/dEchorate/sofa/*.zip`; do
         n_files=`unzip -l $file | tail -n 1 | xargs echo -n | cut -d' ' -f2`
-        unzip $file -d $data_dir/dEchorate/sofa/ | tqdm --unit files --unit_scale --total $n_files > /dev/null
+        unzip -o $file -d $data_dir/dEchorate/sofa/ | tqdm --unit files --unit_scale --total $n_files > /dev/null
         rm $file
     done
 fi
@@ -114,7 +121,7 @@ else
         echo "Download BRUDEX noise dataset to $data_dir/BRUDEX.zip"
         wget -O $data_dir/BRUDEX.zip https://zenodo.org/records/8340195/files/rir.zip?download=1
     fi
-    mkdir $data_dir/BRUDEX;
+    mkdir $data_dir/BRUDEX
     echo "Extract $data_dir/BRUDEX.zip to $data_dir/BRUDEX"
     n_files=`unzip -l $data_dir/BRUDEX.zip | tail -n 1 | xargs echo -n | cut -d' ' -f2`
     unzip $data_dir/BRUDEX.zip -d $data_dir/BRUDEX | tqdm --unit files --unit_scale --total $n_files > /dev/null
@@ -136,7 +143,7 @@ fi
 if [ -d "$data_dir/ARNI" ]; then
     echo "[Warning] Skip download of ARNI. The directory $data_dir/ARNI arleady exists."
 else
-    mkdir $data_dir/ARNI;
+    mkdir $data_dir/ARNI
     wget -P $data_dir/ARNI/ https://zenodo.org/records/6985104/files/Arni_layout.jpg
     wget -P $data_dir/ARNI/ https://zenodo.org/records/6985104/files/Arni_panels_numbers.pdf
     wget -P $data_dir/ARNI/ https://zenodo.org/records/6985104/files/combinations_setup.csv
