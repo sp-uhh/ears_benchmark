@@ -2,7 +2,7 @@ gdown
 h5py
 librosa
 mat73
-numpy
+numpy<2.0
 pyloudnorm
 python-sofa
 soundfile
