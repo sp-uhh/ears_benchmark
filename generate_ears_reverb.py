@@ -92,7 +92,7 @@ if __name__ == '__main__':
 
     # Organize directories
     speech_dir = join(args.data_dir, "EARS")
-    target_dir = join(args.data_dir, "EARS-Reverb_seed_42")
+    target_dir = join(args.data_dir, "EARS-Reverb")
     assert isdir(speech_dir), f"The directory {speech_dir} does not exist"
 
     if exists(target_dir):
@@ -152,115 +152,115 @@ if __name__ == '__main__':
 
     meter = pyln.Meter(args.sr)
     
-    # # Select speech files for split
-    # for subset in ["train", "valid"]:
-    #     print(f"Generate {subset} split")
-    #     with open(join(target_dir, f"{subset}.csv"), "w") as text_file:
-    #         text_file.write(f"id,speaker,speech_file,speech_start,speech_end,rir_file,channel,gain,rt60\n")
-    #     speech_files = []
-    #     for speaker in speakers[subset]:  
-    #         speech_files += sorted(glob(join(speech_dir, speaker, "*.wav")))
-    #         if args.copy_clean:
-    #             makedirs(join(target_dir, subset, "clean", speaker))  
-    #         makedirs(join(target_dir, subset, "reverberant", speaker))  
+    # Select speech files for split
+    for subset in ["train", "valid"]:
+        print(f"Generate {subset} split")
+        with open(join(target_dir, f"{subset}.csv"), "w") as text_file:
+            text_file.write(f"id,speaker,speech_file,speech_start,speech_end,rir_file,channel,gain,rt60\n")
+        speech_files = []
+        for speaker in speakers[subset]:  
+            speech_files += sorted(glob(join(speech_dir, speaker, "*.wav")))
+            if args.copy_clean:
+                makedirs(join(target_dir, subset, "clean", speaker))  
+            makedirs(join(target_dir, subset, "reverberant", speaker))  
         
-    #     # Remove files of hold out styles
-    #     speech_files = [speech_file for speech_file in speech_files if speech_file.split("/")[-1].split("_")[0] not in hold_out_styles]
-    #     id = 0
-    #     for speech_file in tqdm(speech_files):
-    #         speech, sr = read(speech_file)
-    #         assert sr == args.sr
-    #         speaker = speech_file.split("/")[-2]
+        # Remove files of hold out styles
+        speech_files = [speech_file for speech_file in speech_files if speech_file.split("/")[-1].split("_")[0] not in hold_out_styles]
+        id = 0
+        for speech_file in tqdm(speech_files):
+            speech, sr = read(speech_file)
+            assert sr == args.sr
+            speaker = speech_file.split("/")[-2]
 
-    #         # Only take speech files that are longer than min_length
-    #         if len(speech) < args.min_length*args.sr:
-    #             continue
+            # Only take speech files that are longer than min_length
+            if len(speech) < args.min_length*args.sr:
+                continue
 
-    #         # Sample RIRs until RT60 is below max_rt60 and pre_samples are below max_pre_samples
-    #         rt60 = np.inf
-    #         while rt60 > args.max_rt60:
-    #             rir_file = np.random.choice(rir_files)
+            # Sample RIRs until RT60 is below max_rt60 and pre_samples are below max_pre_samples
+            rt60 = np.inf
+            while rt60 > args.max_rt60:
+                rir_file = np.random.choice(rir_files)
 
-    #             if "ARNI" in rir_file:
-    #                 rir, sr = read(rir_file, always_2d=True)
-    #                 # Take random channel if file is multi-channel
-    #                 channel = np.random.randint(0, rir.shape[1])
-    #                 rir = rir[:,channel]
-    #                 assert sr == 44100, f"Sampling rate of {rir_file} is {sr}"
-    #                 rir = resample(rir, orig_sr=sr, target_sr=args.sr)
-    #                 sr = args.sr
-    #             elif rir_file.endswith(".wav"):
-    #                 rir, sr = read(rir_file, always_2d=True)
-    #                 # Take random channel if file is multi-channel
-    #                 channel = np.random.randint(0, rir.shape[1])
-    #                 rir = rir[:,channel]
-    #             elif rir_file.endswith(".sofa"):
-    #                 hrtf = sofa.Database.open(rir_file)
-    #                 rir = hrtf.Data.IR.get_values()
-    #                 channel = np.random.randint(0, rir.shape[1])
-    #                 rir = rir[0,channel,:]
-    #                 sr = hrtf.Data.SamplingRate.get_values().item()
-    #             elif rir_file.endswith(".mat"):
-    #                 rir = mat73.loadmat(rir_file)
-    #                 sr = rir["fs"].item()
-    #                 rir = rir["data"]
-    #                 channel = np.random.randint(0, rir.shape[1])
-    #                 rir = rir[:,channel]
-    #             else:
-    #                 raise ValueError(f"Unknown file format: {rir_file}")
+                if "ARNI" in rir_file:
+                    rir, sr = read(rir_file, always_2d=True)
+                    # Take random channel if file is multi-channel
+                    channel = np.random.randint(0, rir.shape[1])
+                    rir = rir[:,channel]
+                    assert sr == 44100, f"Sampling rate of {rir_file} is {sr}"
+                    rir = resample(rir, orig_sr=sr, target_sr=args.sr)
+                    sr = args.sr
+                elif rir_file.endswith(".wav"):
+                    rir, sr = read(rir_file, always_2d=True)
+                    # Take random channel if file is multi-channel
+                    channel = np.random.randint(0, rir.shape[1])
+                    rir = rir[:,channel]
+                elif rir_file.endswith(".sofa"):
+                    hrtf = sofa.Database.open(rir_file)
+                    rir = hrtf.Data.IR.get_values()
+                    channel = np.random.randint(0, rir.shape[1])
+                    rir = rir[0,channel,:]
+                    sr = hrtf.Data.SamplingRate.get_values().item()
+                elif rir_file.endswith(".mat"):
+                    rir = mat73.loadmat(rir_file)
+                    sr = rir["fs"].item()
+                    rir = rir["data"]
+                    channel = np.random.randint(0, rir.shape[1])
+                    rir = rir[:,channel]
+                else:
+                    raise ValueError(f"Unknown file format: {rir_file}")
 
-    #             assert sr == args.sr, f"Sampling rate of {rir_file} is {sr}"
+                assert sr == args.sr, f"Sampling rate of {rir_file} is {sr}"
 
-    #             # Cut RIR to get direct path at the beginning
-    #             max_index = np.argmax(np.abs(rir))
-    #             rir = rir[max_index:]
+                # Cut RIR to get direct path at the beginning
+                max_index = np.argmax(np.abs(rir))
+                rir = rir[max_index:]
 
-    #             # Normalize RIRs in range [0.1, 0.7]
-    #             if np.max(np.abs(rir)) < 0.1:
-    #                 rir = 0.1 * rir / np.max(np.abs(rir))
-    #             elif np.max(np.abs(rir)) > 0.7:
-    #                 rir = 0.7 * rir / np.max(np.abs(rir))
+                # Normalize RIRs in range [0.1, 0.7]
+                if np.max(np.abs(rir)) < 0.1:
+                    rir = 0.1 * rir / np.max(np.abs(rir))
+                elif np.max(np.abs(rir)) > 0.7:
+                    rir = 0.7 * rir / np.max(np.abs(rir))
 
-    #             rt60 = calc_rt60(rir, sr=sr)
+                rt60 = calc_rt60(rir, sr=sr)
 
-    #             mixture = convolve(speech, rir)[:len(speech)]
+                mixture = convolve(speech, rir)[:len(speech)]
 
-    #             # normalize mixture
-    #             loudness_speech = meter.integrated_loudness(speech)
-    #             loudness_mixture = meter.integrated_loudness(mixture)
-    #             delta_loudness = loudness_speech - loudness_mixture
-    #             gain = np.power(10.0, delta_loudness/20.0)
-    #             # if gain is inf sample again
-    #             if np.isinf(gain):
-    #                 rt60 = np.inf
-    #             mixture = gain * mixture
+                # normalize mixture
+                loudness_speech = meter.integrated_loudness(speech)
+                loudness_mixture = meter.integrated_loudness(mixture)
+                delta_loudness = loudness_speech - loudness_mixture
+                gain = np.power(10.0, delta_loudness/20.0)
+                # if gain is inf sample again
+                if np.isinf(gain):
+                    rt60 = np.inf
+                mixture = gain * mixture
 
-    #         if np.max(np.abs(mixture)) > 1.0:
-    #             mixture = mixture / np.max(np.abs(mixture))
+            if np.max(np.abs(mixture)) > 1.0:
+                mixture = mixture / np.max(np.abs(mixture))
 
-    #         # Cut long files into pieces
-    #         if len(mixture) >= int((args.cut_length + args.min_length)*args.sr):
-    #             long_mixture = mixture
-    #             long_speech = speech
-    #             num_splits = int((len(long_mixture) - int(args.min_length*args.sr))/int(args.cut_length*args.sr)) + 1
-    #             for i in range(num_splits - 1):
-    #                 speech_start = i*int(args.cut_length*args.sr)
-    #                 speech_end = (i+1)*int(args.cut_length*args.sr)
-    #                 mixture = long_mixture[speech_start:speech_end]
-    #                 speech = long_speech[speech_start:speech_end]
-    #                 id = save_files(target_dir, subset, speaker, id, speech_file, speech_start, speech_end, rir_file,
-    #                                 channel, gain, rt60, mixture, speech, args)
-    #             speech_start = (num_splits - 1)*int(args.cut_length*args.sr)
-    #             speech_end = -1
-    #             mixture = long_mixture[speech_start:speech_end]
-    #             speech = long_speech[speech_start:speech_end]
-    #             id = save_files(target_dir, subset, speaker, id, speech_file, speech_start, speech_end, rir_file,
-    #                             channel, gain, rt60, mixture, speech, args)
-    #         else:
-    #             speech_start = 0
-    #             speech_end = -1
-    #             id = save_files(target_dir, subset, speaker, id, speech_file, speech_start, speech_end, rir_file,
-    #                             channel, gain, rt60, mixture, speech, args)
+            # Cut long files into pieces
+            if len(mixture) >= int((args.cut_length + args.min_length)*args.sr):
+                long_mixture = mixture
+                long_speech = speech
+                num_splits = int((len(long_mixture) - int(args.min_length*args.sr))/int(args.cut_length*args.sr)) + 1
+                for i in range(num_splits - 1):
+                    speech_start = i*int(args.cut_length*args.sr)
+                    speech_end = (i+1)*int(args.cut_length*args.sr)
+                    mixture = long_mixture[speech_start:speech_end]
+                    speech = long_speech[speech_start:speech_end]
+                    id = save_files(target_dir, subset, speaker, id, speech_file, speech_start, speech_end, rir_file,
+                                    channel, gain, rt60, mixture, speech, args)
+                speech_start = (num_splits - 1)*int(args.cut_length*args.sr)
+                speech_end = -1
+                mixture = long_mixture[speech_start:speech_end]
+                speech = long_speech[speech_start:speech_end]
+                id = save_files(target_dir, subset, speaker, id, speech_file, speech_start, speech_end, rir_file,
+                                channel, gain, rt60, mixture, speech, args)
+            else:
+                speech_start = 0
+                speech_end = -1
+                id = save_files(target_dir, subset, speaker, id, speech_file, speech_start, speech_end, rir_file,
+                                channel, gain, rt60, mixture, speech, args)
     
     # ramps at beginning and end
     ramp_duration = args.ramp_time_in_ms / 1000
