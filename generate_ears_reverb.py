@@ -27,7 +27,7 @@ def save_files(target_dir, subset, speaker, id, speech_file, speech_start, speec
     id += 1
     return id
 
-def calc_rt60(h, sr=480000, rt='t30'): 
+def calc_rt60(h, sr=48000, rt='t30'): 
     """
     RT60 measurement routine acording to Schroeder's method [1].
 
