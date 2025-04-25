@@ -1,6 +1,7 @@
 import sys
 import sofa
 import mat73
+import torch
 import numpy as np
 import pyloudnorm as pyln
 
@@ -13,17 +14,18 @@ from soundfile import read, write
 from tqdm import tqdm
 from scipy.signal import convolve
 from scipy import stats
-from librosa import resample
+from librosa import resample as resample_librosa
+from torchaudio.functional import highpass_biquad
+from torchaudio.transforms import Resample
 
 
 def save_files(target_dir, subset, speaker, id, speech_file, speech_start, speech_end, rir_file, channel, 
-               gain, rt60, mixture, speech, args):
+               gain, rt60, mixture, speech, data_dir, sr):
     with open(join(target_dir, f"{subset}.csv"), "a") as text_file:
         text_file.write(f"{id:05},{speaker},{speech_file.split('/')[-1][:-4]},{speech_start},{speech_end},"
-            + f"{rir_file.replace(args.data_dir, '')},{channel},{gain},{rt60:.2f}\n")
-    write(join(target_dir, subset, "reverberant", speaker, f"{id:05}_{rt60:.2f}.wav"), mixture, args.sr, subtype="FLOAT")
-    if args.copy_clean:
-        write(join(target_dir, subset, "clean", speaker, f"{id:05}.wav"), speech, args.sr, subtype="FLOAT")
+            + f"{rir_file.replace(data_dir, '')},{channel},{gain},{rt60:.2f}\n")
+    write(join(target_dir, subset, "reverberant", speaker, f"{id:05}_{rt60:.2f}.wav"), mixture, sr, subtype="FLOAT")
+    write(join(target_dir, subset, "clean", speaker, f"{id:05}.wav"), speech, sr, subtype="FLOAT")
     id += 1
     return id
 
@@ -75,24 +77,23 @@ def calc_rt60(h, sr=48000, rt='t30'):
     return t60
 
 
-if __name__ == '__main__':
-    parser = ArgumentParser()
-    parser.add_argument("--data_dir", type=str, required=True, help='Path to data directory which should contain subdirectories EARS and WHAM!48kHz')
-    parser.add_argument("--min_length", type=float, default=4.0, help='Minimum length of speech files in seconds')
-    parser.add_argument("--cut_length", type=float, default=10.0, help='Cut long files to this length in seconds')
-    parser.add_argument("--copy_clean", action='store_true', help='Copy clean speech files to target directory')
-    parser.add_argument("--sr", type=int, default=48000, help='Sampling rate')
-    parser.add_argument("--ramp_time_in_ms", type=int, default=10, help="Ramp time in ms")
-    parser.add_argument("--max_rt60", type=float, default=2.0, help="Maximum RT60 in seconds")
-    parser.add_argument("--max_time_test_set_in_s", type=int, default=29, help="Maximum time in seconds for the test set")
-    args = parser.parse_args()
-
+def main(args):
     # Reproducibility
     np.random.seed(42)
 
+    # Set sampling rate
+    if getattr(args, '16k') == True:
+        target_sr = 16000
+    else:
+        target_sr = args.sr
+
     # Organize directories
     speech_dir = join(args.data_dir, "EARS")
-    target_dir = join(args.data_dir, "EARS-Reverb")
+    if target_sr == 48000:
+        target_dir = join(args.data_dir, "EARS-Reverb_v2")
+    else:
+        target_dir = join(args.data_dir, f"EARS-Reverb_v2_{target_sr//1000}k")
+
     assert isdir(speech_dir), f"The directory {speech_dir} does not exist"
 
     if exists(target_dir):
@@ -115,43 +116,49 @@ if __name__ == '__main__':
     # Hold out speaking styles 
     hold_out_styles = ["interjection", "melodic", "nonverbal", "vegetative"]
 
-    rir_files = []
+    # Splits for RIRs
+    rir_files = {
+        "train": [],
+        "valid": [],
+        "test": [],
+    }
 
     # ACE-Challenge dataset
     dir = join(args.data_dir, "ACE-Challenge")
     names = ["Chromebook", "Crucif", "EM32", "Lin8Ch", "Mobile", "Single"]
     for name in names:
-        rir_files += sorted(glob(join(dir, name, "**", "*RIR.wav"), recursive=True))
+        rir_files["test"] += sorted(glob(join(dir, name, "**", "*RIR.wav"), recursive=True))
 
     # AIR dataset
     dir = join(args.data_dir, "AIR", "AIR_1_4", "AIR_wav_files")
-    rir_files += sorted(glob(join(dir, "*.wav")))
+    rir_files["valid"] += sorted(glob(join(dir, "*.wav")))
 
     # ARNI dataset
     dir = join(args.data_dir, "ARNI")
     all_arni_files = sorted(glob(join(dir, "**", "*.wav"), recursive=True))
     # remove file numClosed_26-35/IR_numClosed_28_numComb_2743_mic_4_sweep_5.wav because it is corrupted
     all_arni_files = [file for file in all_arni_files if "numClosed_26-35/IR_numClosed_28_numComb_2743_mic_4_sweep_5.wav" not in file]
-    rir_files += sorted(list(np.random.choice(all_arni_files, size=1000, replace=False))) # take 1000 of 132037 RIRs
+    rir_files["train"] += sorted(list(np.random.choice(all_arni_files, size=1000, replace=False))) # take 1000 of 132037 RIRs
 
     # BRUDEX dataset
     dir = join(args.data_dir, "BRUDEX")
-    rir_files += sorted(glob(join(dir, "rir", "**", "*.mat"), recursive=True))
+    rir_files["train"] += sorted(glob(join(dir, "rir", "**", "*.mat"), recursive=True))
 
     # dEchorate dataset
     dir = join(args.data_dir, "dEchorate", "sofa")
-    rir_files += sorted(glob(join(dir, "**", "*.sofa"), recursive=True))
+    rir_files["train"] += sorted(glob(join(dir, "**", "*.sofa"), recursive=True))
 
     # DetmoldSRIR dataset
     dir = join(args.data_dir, "DetmoldSRIR")
-    rir_files += sorted(glob(join(dir, "SetA_SingleSources", "Data", "**", "*.wav"), recursive=True))
+    rir_files["train"] += sorted(glob(join(dir, "SetA_SingleSources", "Data", "**", "*.wav"), recursive=True))
 
     # Palimpsest dataset
     dir = join(args.data_dir, "Palimpsest")
-    rir_files += sorted(glob(join(dir, "**", "*.wav"), recursive=True))
+    rir_files["train"] += sorted(glob(join(dir, "**", "*.wav"), recursive=True))
 
-    meter = pyln.Meter(args.sr)
-    
+    meter = pyln.Meter(48000)
+    resample = Resample(48000, target_sr, dtype=torch.float64)
+
     # Select speech files for split
     for subset in ["train", "valid"]:
         print(f"Generate {subset} split")
@@ -160,8 +167,7 @@ if __name__ == '__main__':
         speech_files = []
         for speaker in speakers[subset]:  
             speech_files += sorted(glob(join(speech_dir, speaker, "*.wav")))
-            if args.copy_clean:
-                makedirs(join(target_dir, subset, "clean", speaker))  
+            makedirs(join(target_dir, subset, "clean", speaker))  
             makedirs(join(target_dir, subset, "reverberant", speaker))  
         
         # Remove files of hold out styles
@@ -169,28 +175,31 @@ if __name__ == '__main__':
         id = 0
         for speech_file in tqdm(speech_files):
             speech, sr = read(speech_file)
-            assert sr == args.sr
             speaker = speech_file.split("/")[-2]
+            assert sr == 48000, "Script only works for speech files of 48kHz."
 
             # Only take speech files that are longer than min_length
             if len(speech) < args.min_length*args.sr:
                 continue
 
+            # Fitler speech signal with Hi-Pass filter 
+            speech = highpass_biquad(torch.from_numpy(speech), sample_rate=sr, cutoff_freq=args.cutoff_freq).numpy()
+
             # Sample RIRs until RT60 is below max_rt60 and pre_samples are below max_pre_samples
             rt60 = np.inf
             while rt60 > args.max_rt60:
-                rir_file = np.random.choice(rir_files)
+                rir_file = np.random.choice(rir_files[subset])
 
                 if "ARNI" in rir_file:
-                    rir, sr = read(rir_file, always_2d=True)
+                    rir, sr_rir = read(rir_file, always_2d=True)
                     # Take random channel if file is multi-channel
                     channel = np.random.randint(0, rir.shape[1])
                     rir = rir[:,channel]
-                    assert sr == 44100, f"Sampling rate of {rir_file} is {sr}"
-                    rir = resample(rir, orig_sr=sr, target_sr=args.sr)
-                    sr = args.sr
+                    assert sr_rir == 44100, f"Sampling rate of {rir_file} is {sr}"
+                    rir = resample_librosa(rir, orig_sr=sr_rir, target_sr=48000)
+                    sr_rir = 48000
                 elif rir_file.endswith(".wav"):
-                    rir, sr = read(rir_file, always_2d=True)
+                    rir, sr_rir = read(rir_file, always_2d=True)
                     # Take random channel if file is multi-channel
                     channel = np.random.randint(0, rir.shape[1])
                     rir = rir[:,channel]
@@ -199,23 +208,23 @@ if __name__ == '__main__':
                     rir = hrtf.Data.IR.get_values()
                     channel = np.random.randint(0, rir.shape[1])
                     rir = rir[0,channel,:]
-                    sr = hrtf.Data.SamplingRate.get_values().item()
+                    sr_rir = hrtf.Data.SamplingRate.get_values().item()
                 elif rir_file.endswith(".mat"):
                     rir = mat73.loadmat(rir_file)
-                    sr = rir["fs"].item()
+                    sr_rir = rir["fs"].item()
                     rir = rir["data"]
                     channel = np.random.randint(0, rir.shape[1])
                     rir = rir[:,channel]
                 else:
                     raise ValueError(f"Unknown file format: {rir_file}")
 
-                assert sr == args.sr, f"Sampling rate of {rir_file} is {sr}"
+                assert sr_rir == sr, f"Sampling rate of {rir_file} is {sr_rir} Hz and not 48000 Hz"
 
                 # Cut RIR to get direct path at the beginning
                 max_index = np.argmax(np.abs(rir))
                 rir = rir[max_index:]
 
-                # Normalize RIRs in range [0.1, 0.7]
+                # Normalize RIRs in range [0.1, 0.7] for numerical stability
                 if np.max(np.abs(rir)) < 0.1:
                     rir = 0.1 * rir / np.max(np.abs(rir))
                 elif np.max(np.abs(rir)) > 0.7:
@@ -248,23 +257,56 @@ if __name__ == '__main__':
                     speech_end = (i+1)*int(args.cut_length*args.sr)
                     mixture = long_mixture[speech_start:speech_end]
                     speech = long_speech[speech_start:speech_end]
-                    id = save_files(target_dir, subset, speaker, id, speech_file, speech_start, speech_end, rir_file,
-                                    channel, gain, rt60, mixture, speech, args)
+
+                    # Measure loudness of the speech
+                    loudness_speech = meter.integrated_loudness(speech)
+
+                    # Resample to target sampling rate
+                    if sr != target_sr:
+                        mixture = resample(torch.from_numpy(mixture)).numpy()
+                        speech = resample(torch.from_numpy(speech)).numpy()
+
+                    # Save file if it contains whisper or min_dB speech loundness
+                    if "whisper" in speech_file or loudness_speech > args.min_dB:
+                        id = save_files(target_dir, subset, speaker, id, speech_file, speech_start, speech_end, rir_file, 
+                            channel, gain, rt60, mixture, speech, args.data_dir, target_sr)
                 speech_start = (num_splits - 1)*int(args.cut_length*args.sr)
                 speech_end = -1
                 mixture = long_mixture[speech_start:speech_end]
                 speech = long_speech[speech_start:speech_end]
-                id = save_files(target_dir, subset, speaker, id, speech_file, speech_start, speech_end, rir_file,
-                                channel, gain, rt60, mixture, speech, args)
+
+                # Measure loudness of the speech
+                loudness_speech = meter.integrated_loudness(speech)
+
+                # Resample to target sampling rate
+                if sr != target_sr:
+                    mixture = resample(torch.from_numpy(mixture)).numpy()
+                    speech = resample(torch.from_numpy(speech)).numpy()
+
+                # Save file if it contains whisper or min_dB speech loundness
+                if "whisper" in speech_file or loudness_speech > args.min_dB:
+                    id = save_files(target_dir, subset, speaker, id, speech_file, speech_start, speech_end, rir_file, 
+                        channel, gain, rt60, mixture, speech, args.data_dir, target_sr)
             else:
                 speech_start = 0
                 speech_end = -1
-                id = save_files(target_dir, subset, speaker, id, speech_file, speech_start, speech_end, rir_file,
-                                channel, gain, rt60, mixture, speech, args)
+
+                # Measure loudness of the speech
+                loudness_speech = meter.integrated_loudness(speech)
+
+                # Resample to target sampling rate
+                if sr != target_sr:
+                    mixture = resample(torch.from_numpy(mixture)).numpy()
+                    speech = resample(torch.from_numpy(speech)).numpy()
+
+                # Save file if it contains whisper or min_dB speech loundness
+                if "whisper" in speech_file or loudness_speech > args.min_dB:
+                    id = save_files(target_dir, subset, speaker, id, speech_file, speech_start, speech_end, rir_file, 
+                        channel, gain, rt60, mixture, speech, args.data_dir, target_sr)
     
     # ramps at beginning and end
     ramp_duration = args.ramp_time_in_ms / 1000
-    ramp_samples = int(ramp_duration * args.sr)
+    ramp_samples = int(ramp_duration * 48000)
     ramp = np.linspace(0, 1, ramp_samples)
                 
     print("Generate test split")
@@ -294,7 +336,11 @@ if __name__ == '__main__':
         speech_file = test_file.split("/")[-1][:-4]
 
         speech, sr = read(join(speech_dir, speaker, speech_file + ".wav"))
-        assert sr == args.sr
+        assert sr == 48000, "Script only works for speech files of 48kHz."
+
+        # Fitler speech signal with Hi-Pass filter 
+        speech = highpass_biquad(torch.from_numpy(speech), sample_rate=sr, cutoff_freq=args.cutoff_freq).numpy()
+
         cutting_times = data[speaker][speech_file]
 
         for cutting_time in cutting_times:
@@ -309,18 +355,18 @@ if __name__ == '__main__':
             # Sample RIRs until RT60 is below max_rt60 and pre_samples are below max_pre_samples
             rt60 = np.inf
             while rt60 > args.max_rt60:
-                rir_file = np.random.choice(rir_files)
+                rir_file = np.random.choice(rir_files["test"])
 
                 if "ARNI" in rir_file:
-                    rir, sr = read(rir_file, always_2d=True)
+                    rir, sr_rir = read(rir_file, always_2d=True)
                     # Take random channel if file is multi-channel
                     channel = np.random.randint(0, rir.shape[1])
                     rir = rir[:,channel]
-                    assert sr == 44100, f"Sampling rate of {rir_file} is {sr}"
-                    rir = resample(rir, orig_sr=sr, target_sr=args.sr)
-                    sr = args.sr
+                    assert sr_rir == 44100, f"Sampling rate of {rir_file} is {sr}"
+                    rir = resample(rir, orig_sr=sr_rir, target_sr=48000)
+                    sr_rir = 48000
                 elif rir_file.endswith(".wav"):
-                    rir, sr = read(rir_file, always_2d=True)
+                    rir, sr_rir = read(rir_file, always_2d=True)
                     # Take random channel if file is multi-channel
                     channel = np.random.randint(0, rir.shape[1])
                     rir = rir[:,channel]
@@ -329,23 +375,23 @@ if __name__ == '__main__':
                     rir = hrtf.Data.IR.get_values()
                     channel = np.random.randint(0, rir.shape[1])
                     rir = rir[0,channel,:]
-                    sr = hrtf.Data.SamplingRate.get_values().item()
+                    sr_rir = hrtf.Data.SamplingRate.get_values().item()
                 elif rir_file.endswith(".mat"):
                     rir = mat73.loadmat(rir_file)
-                    sr = rir["fs"].item()
+                    sr_rir = rir["fs"].item()
                     rir = rir["data"]
                     channel = np.random.randint(0, rir.shape[1])
                     rir = rir[:,channel]
                 else:
                     raise ValueError(f"Unknown file format: {rir_file}")
 
-                assert sr == args.sr, f"Sampling rate of {rir_file} is {sr}"
+                assert sr_rir == sr, f"Sampling rate of {rir_file} is {sr_rir} Hz and not 48000 Hz"
 
                 # Cut RIR to get direct path at the beginning
                 max_index = np.argmax(np.abs(rir))
                 rir = rir[max_index:]
 
-                # Normalize RIRs in range [0.1, 0.7]
+                # Normalize RIRs in range [0.1, 0.7] for numerical stability
                 if np.max(np.abs(rir)) < 0.1:
                     rir = 0.1 * rir / np.max(np.abs(rir))
                 elif np.max(np.abs(rir)) > 0.7:
@@ -374,5 +420,34 @@ if __name__ == '__main__':
             speech_cut[:ramp_samples] = speech_cut[:ramp_samples] * ramp
             speech_cut[-ramp_samples:] = speech_cut[-ramp_samples:] * ramp[::-1]
 
-            id = save_files(target_dir, "test", speaker, id, test_file, start, end, rir_file,
-                                channel, gain, rt60, mixture, speech_cut, args)
+            # Resample to target sampling rate
+            if sr != target_sr:
+                mixture = resample(torch.from_numpy(mixture)).numpy()
+                speech_cut = resample(torch.from_numpy(speech_cut)).numpy()
+
+            id = save_files(target_dir, "test", speaker, id, test_file, start, end, rir_file, channel, gain, rt60, 
+                mixture, speech_cut, args.data_dir, target_sr)
+
+
+if __name__ == '__main__':
+    '''
+    Usage:
+
+    python generate_ears_reverb.py --data_dir /data3/databases
+
+    '''
+
+    parser = ArgumentParser()
+    parser.add_argument("--data_dir", type=str, required=True, help='Path to data directory which should contain subdirectories EARS and WHAM!48kHz')
+    parser.add_argument("--min_length", type=float, default=4.0, help='Minimum length of speech files in seconds')
+    parser.add_argument("--cut_length", type=float, default=10.0, help='Cut long files to this length in seconds')
+    parser.add_argument("--cutoff_freq", type=float, default=75.0, help="Cutoff frequency for Hi-Pass filter")
+    parser.add_argument("--min_dB", type=float, default=-55.0, help="Minimum loundness threshold for clean speech")
+    parser.add_argument("--sr", type=int, default=48000, help='Sampling rate')
+    parser.add_argument("--16k", action="store_true", help="Set sampling rate to 16kHz")
+    parser.add_argument("--ramp_time_in_ms", type=int, default=10, help="Ramp time in ms")
+    parser.add_argument("--max_rt60", type=float, default=2.0, help="Maximum RT60 in seconds")
+    parser.add_argument("--max_time_test_set_in_s", type=int, default=29, help="Maximum time in seconds for the test set")
+    args = parser.parse_args()
+
+    main(args)

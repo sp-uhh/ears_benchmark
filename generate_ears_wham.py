@@ -1,5 +1,7 @@
 import sys
+import csv
 import json
+import torch
 import numpy as np
 import pyloudnorm as pyln
 
@@ -9,16 +11,17 @@ from os.path import join, isdir, exists
 from argparse import ArgumentParser
 from soundfile import read, write
 from tqdm import tqdm
+from torchaudio.functional import highpass_biquad
+from torchaudio.transforms import Resample
 
 
-def save_files(target_dir, subset, speaker, id, speech_file, speech_start, speech_end, 
-               noise_file, noise_start, mixture, speech, snr_dB, args):
+def save_files(target_dir, subset, speaker, id, speech_file, speech_start, speech_end, noise_file, noise_start, mixture, speech, loudness_speech, loudness_noise, loudness_mixture, snr_dB, sr):
     with open(join(target_dir, f"{subset}.csv"), "a") as text_file:
         text_file.write(f"{id:05},{speaker},{speech_file.split('/')[-1][:-4]},{speech_start},{speech_end},"
-            + f"{noise_file.split('/')[-1][:-4]},{noise_start+speech_start},{noise_start+speech_start+len(mixture)},{snr_dB:.1f}\n")
-    write(join(target_dir, subset, "noisy", speaker, f"{id:05}_{snr_dB:.1f}dB.wav"), mixture, args.sr, subtype="FLOAT")
-    if args.copy_clean:
-        write(join(target_dir, subset, "clean", speaker, f"{id:05}.wav"), speech, args.sr, subtype="FLOAT")
+            + f"{noise_file.split('/')[-1][:-4]},{noise_start+speech_start},{noise_start+speech_start+len(mixture)}," 
+            + f"{loudness_speech:.1f},{loudness_noise:.1f},{loudness_mixture:.1f},{snr_dB:.1f}\n")
+    write(join(target_dir, subset, "noisy", speaker, f"{id:05}_{snr_dB:.1f}dB.wav"), mixture, sr, subtype="FLOAT")
+    write(join(target_dir, subset, "clean", speaker, f"{id:05}.wav"), speech, sr, subtype="FLOAT")
     id += 1
     return id
 
@@ -29,26 +32,25 @@ def find_emotion_style(speech_file, emotions_styles=[]):
     return None
 
 
-if __name__ == "__main__":
-    parser = ArgumentParser()
-    parser.add_argument("--data_dir", type=str, required=True, help="Path to data directory which should contain subdirectories EARS and WHAM!48kHz")
-    parser.add_argument("--min_snr", type=float, default=-2.5, help="Minimum SNR")
-    parser.add_argument("--max_snr", type=float, default=17.5, help="Maximum SNR")
-    parser.add_argument("--min_length", type=float, default=4.0, help="Minimum length of speech files in seconds")
-    parser.add_argument("--cut_length", type=float, default=10.0, help="Cut long files to this length in seconds")
-    parser.add_argument("--copy_clean", action="store_true", help="Copy clean speech files to target directory")
-    parser.add_argument("--sr", type=int, default=48000, help="Sampling rate")
-    parser.add_argument("--ramp_time_in_ms", type=int, default=10, help="Ramp time in ms")
-    parser.add_argument("--max_time_test_set_in_s", type=int, default=29, help="Maximum time in seconds for the test set")
-    args = parser.parse_args()
-
+def main(args):
     # Reproducibility
     np.random.seed(42)
+
+    # Set sampling rate
+    if getattr(args, '16k') == True:
+        target_sr = 16000
+    else:
+        target_sr = args.sr
 
     # Organize directories
     speech_dir = join(args.data_dir, "EARS")
     noise_dir = join(args.data_dir, "WHAM48kHz")
-    target_dir = join(args.data_dir, "EARS-WHAM")
+
+    if target_sr == 48000:
+        target_dir = join(args.data_dir, "EARS-WHAM_v2")
+    else:
+        target_dir = join(args.data_dir, f"EARS-WHAM_v2_{target_sr//1000}k")
+
     assert isdir(speech_dir), f"The directory {speech_dir} does not exist"
     assert isdir(noise_dir), f"The directory {noise_dir} does not exist"
 
@@ -106,41 +108,54 @@ if __name__ == "__main__":
         "whisper"
     ]
 
-    # Load noisy speech 
-    noise_files = glob(join(noise_dir, "high_res_wham", "audio", "*.wav")) 
+    # Retrieve noise metadata
+    noise_splits = {"train": [], "valid": [], "test": []}
+    with open(join(noise_dir, "high_res_wham", "high_res_metadata.csv"), mode='r') as file:
+        reader = csv.DictReader(file)
+        for row in reader:
+            subset = row['WHAM! Split'].lower()
+            filename = row['Filename']
+            noise_splits[subset].append(filename)
 
     # DSP
-    meter = pyln.Meter(args.sr)
+    meter = pyln.Meter(48000)
+    resample = Resample(48000, target_sr, dtype=torch.float64)
     
     # Select speech files for split
     for subset in ["train", "valid"]:
         print(f"Generate {subset} split")
         with open(join(target_dir, f"{subset}.csv"), "w") as text_file:
-            text_file.write(f"id,speaker,speech_file,speech_start,speech_end,noise_file,noise_start,noise_end,snr_dB\n")
+            text_file.write(f"id,speaker,speech_file,speech_start,speech_end,noise_file,noise_start,noise_end,speech_dB,noise_dB,mixture_dB,snr_dB\n")
         speech_files = []
         for speaker in speakers[subset]:  
             speech_files += sorted(glob(join(speech_dir, speaker, "*.wav")))
             makedirs(join(target_dir, subset, "clean", speaker))  
             makedirs(join(target_dir, subset, "noisy", speaker))  
+
+        # Select noise files
+        noise_files = [join(noise_dir, "high_res_wham", "audio", filename) for filename in  noise_splits.get(subset, [])]
         
         # Remove files of hold out styles
         speech_files = [speech_file for speech_file in speech_files if speech_file.split("/")[-1].split("_")[0] not in hold_out_styles]
         id = 0
         for speech_file in tqdm(speech_files):
             speech, sr = read(speech_file)
-            assert sr == args.sr
             speaker = speech_file.split("/")[-2]
+            assert sr == 48000, "Script only works for speech files of 48kHz."
 
             # Only take speech files that are longer than min_length
-            if len(speech) < args.min_length*args.sr:
+            if len(speech) < args.min_length*sr:
                 continue
-            
+
+            # Fitler speech signal with Hi-Pass filter 
+            speech = highpass_biquad(torch.from_numpy(speech), sample_rate=sr, cutoff_freq=args.cutoff_freq).numpy()
+
             noise = np.zeros((0,0))
             # Only take noise file that is longer than the speech file
             while noise.shape[0] < speech.shape[0]:
                 noise_file = np.random.choice(noise_files)
-                noise, sr = read(noise_file, always_2d=True)
-            assert sr == args.sr
+                noise, sr_noise = read(noise_file, always_2d=True)
+            assert sr == sr_noise, "Sampling rates of speech and noise should match."
 
             # Take random channel if noise file is multi-channel
             channel = np.random.randint(0, noise.shape[1])
@@ -170,32 +185,77 @@ if __name__ == "__main__":
                 mixture = speech + noise_scaled
 
             # Cut long files into pieces
-            if len(mixture) >= int((args.cut_length + args.min_length)*args.sr):
+            if len(mixture) >= int((args.cut_length + args.min_length)*sr):
                 long_mixture = mixture
                 long_speech = speech
-                num_splits = int((len(long_mixture) - int(args.min_length*args.sr))/int(args.cut_length*args.sr)) + 1
+                num_splits = int((len(long_mixture) - int(args.min_length*sr))/int(args.cut_length*sr)) + 1
                 for i in range(num_splits - 1):
-                    speech_start = i*int(args.cut_length*args.sr)
-                    speech_end = (i+1)*int(args.cut_length*args.sr)
+                    speech_start = i*int(args.cut_length*sr)
+                    speech_end = (i+1)*int(args.cut_length*sr)
                     mixture = long_mixture[speech_start:speech_end]
                     speech = long_speech[speech_start:speech_end]
-                    id = save_files(target_dir, subset, speaker, id, speech_file, speech_start, speech_end, 
-                                    noise_file, noise_start, mixture, speech, snr_dB, args)
-                speech_start = (num_splits - 1)*int(args.cut_length*args.sr)
+
+                    # Measure loudness of the speech, noise, and mixture snippet
+                    noise = mixture - speech
+                    loudness_speech = meter.integrated_loudness(speech)
+                    loudness_noise = meter.integrated_loudness(noise)
+                    loudness_mixture = meter.integrated_loudness(mixture)
+
+                    # Resample to target sampling rate
+                    if sr != target_sr:
+                        mixture = resample(torch.from_numpy(mixture)).numpy()
+                        speech = resample(torch.from_numpy(speech)).numpy()
+
+                    # Save file if it contains whisper or min_dB speech loundness
+                    if "whisper" in speech_file or loudness_speech > args.min_dB:
+                        id = save_files(target_dir, subset, speaker, id, speech_file, speech_start, speech_end, 
+                                        noise_file, noise_start, mixture, speech, loudness_speech, loudness_noise, 
+                                        loudness_mixture, snr_dB, target_sr)
+                speech_start = (num_splits - 1)*int(args.cut_length*sr)
                 speech_end = -1
                 mixture = long_mixture[speech_start:speech_end]
                 speech = long_speech[speech_start:speech_end]
-                id = save_files(target_dir, subset, speaker, id, speech_file, speech_start, speech_end, 
-                                noise_file, noise_start, mixture, speech, snr_dB, args)
+
+                # Measure loudness of the speech, noise, and mixture snippet
+                noise = mixture - speech
+                loudness_speech = meter.integrated_loudness(speech)
+                loudness_noise = meter.integrated_loudness(noise)
+                loudness_mixture = meter.integrated_loudness(mixture)
+
+                # Resample to target sampling rate
+                if sr != target_sr:
+                    mixture = resample(torch.from_numpy(mixture)).numpy()
+                    speech = resample(torch.from_numpy(speech)).numpy()
+
+                # Save file if it contains whisper or min_dB speech loundness
+                if "whisper" in speech_file or loudness_speech > args.min_dB:
+                    id = save_files(target_dir, subset, speaker, id, speech_file, speech_start, speech_end, 
+                                    noise_file, noise_start, mixture, speech, loudness_speech, loudness_noise, 
+                                    loudness_mixture, snr_dB, target_sr)
             else:
                 speech_start = 0
                 speech_end = -1
-                id = save_files(target_dir, subset, speaker, id, speech_file, speech_start, speech_end, 
-                                noise_file, noise_start, mixture, speech, snr_dB, args)
+
+                # Measure loudness of the speech, noise, and mixture snippet
+                noise = mixture - speech
+                loudness_speech = meter.integrated_loudness(speech)
+                loudness_noise = meter.integrated_loudness(noise)
+                loudness_mixture = meter.integrated_loudness(mixture)
+
+                # Resample to target sampling rate
+                if sr != target_sr:
+                    mixture = resample(torch.from_numpy(mixture)).numpy()
+                    speech = resample(torch.from_numpy(speech)).numpy()
+
+                # Save file if it contains whisper or min_dB speech loundness
+                if "whisper" in speech_file or loudness_speech > args.min_dB:
+                    id = save_files(target_dir, subset, speaker, id, speech_file, speech_start, speech_end, 
+                                    noise_file, noise_start, mixture, speech, loudness_speech, loudness_noise, 
+                                    loudness_mixture, snr_dB, target_sr)
 
     # ramps at beginning and end
     ramp_duration = args.ramp_time_in_ms / 1000
-    ramp_samples = int(ramp_duration * args.sr)
+    ramp_samples = int(ramp_duration * 48000)
     ramp = np.linspace(0, 1, ramp_samples)
 
     # Reset the seed for reproducibility
@@ -219,6 +279,9 @@ if __name__ == "__main__":
     # Shuffle test files
     np.random.shuffle(test_files)
 
+    # Select noise test files
+    noise_files = [join(noise_dir, "high_res_wham", "audio", filename) for filename in  noise_splits.get("test", [])]
+
     # Ensure that the SNR is sampled uniformly for each emotion/style
     number_of_files_per_emotion = 12
     snr_bins = np.linspace(args.min_snr, args.max_snr, number_of_files_per_emotion + 1)
@@ -230,12 +293,15 @@ if __name__ == "__main__":
         speech_file = test_file.split("/")[-1][:-4]
 
         speech, sr = read(join(speech_dir, speaker, speech_file + ".wav"))
-        assert sr == args.sr
+        assert sr == 48000, "Script only works for speech files of 48kHz."
+
+        # Fitler speech signal with Hi-Pass filter 
+        speech = highpass_biquad(torch.from_numpy(speech), sample_rate=sr, cutoff_freq=args.cutoff_freq).numpy()
+
         cutting_times = data[speaker][speech_file]
 
         noise_file = np.random.choice(noise_files)
         noise, sr = read(noise_file, always_2d=True)
-        assert sr == args.sr
 
         # Take random channel if noise file is multi-channel
         channel = np.random.randint(0, noise.shape[1])
@@ -247,20 +313,20 @@ if __name__ == "__main__":
             speech_cut = speech[start:end]
 
             # Only take speech files that not longer than max_time_test_set_in_s
-            if len(speech_cut) > args.max_time_test_set_in_s*args.sr:
+            if len(speech_cut) > args.max_time_test_set_in_s*sr:
                 continue
 
             # Only take noise file that is longer than the speech file
             if noise.shape[0] < speech_cut.shape[0]:
                 while noise.shape[0] < speech_cut.shape[0]:
                     noise_file = np.random.choice(noise_files)
-                    noise, sr = read(noise_file, always_2d=True)
-                assert sr == args.sr
+                    noise, sr_noise = read(noise_file, always_2d=True)
+                assert sr == sr_noise, "Sampling rates of speech and noise should match."
 
                 # Take random channel if noise file is multi-channel
                 channel = np.random.randint(0, noise.shape[1])
                 noise = noise[:,channel]
-
+            
             # Randomly select a part of the noise file
             noise_start = np.random.randint(len(noise)-len(speech_cut)+1)
             noise_cut = noise[noise_start:noise_start+len(speech_cut)]
@@ -300,5 +366,41 @@ if __name__ == "__main__":
             speech_cut[:ramp_samples] = speech_cut[:ramp_samples] * ramp
             speech_cut[-ramp_samples:] = speech_cut[-ramp_samples:] * ramp[::-1]
 
-            id = save_files(target_dir, "test", speaker, id, test_file, start, end, 
-                            noise_file, noise_start, mixture, speech_cut, snr_dB, args)
+            # Measure loudness of the speech, noise, and mixture snippet
+            noise = mixture - speech_cut
+            loudness_speech = meter.integrated_loudness(speech_cut)
+            loudness_noise = meter.integrated_loudness(noise)
+            loudness_mixture = meter.integrated_loudness(mixture)
+
+            # Resample to target sampling rate
+            if sr != target_sr:
+                mixture = resample(torch.from_numpy(mixture)).numpy()
+                speech_cut = resample(torch.from_numpy(speech_cut)).numpy()
+
+            id = save_files(target_dir, "test", speaker, id, test_file, start, end, noise_file, noise_start, mixture, 
+                            speech_cut, loudness_speech, loudness_noise, loudness_mixture, snr_dB, target_sr)
+
+
+if __name__ == "__main__":
+    '''
+    Usage:
+
+    python generate_ears_wham.py --data_dir /data3/databases
+
+    '''
+
+    parser = ArgumentParser()
+    parser.add_argument("--data_dir", type=str, required=True, help="Path to data directory which should contain subdirectories EARS and WHAM!48kHz")
+    parser.add_argument("--min_snr", type=float, default=-2.5, help="Minimum SNR")
+    parser.add_argument("--max_snr", type=float, default=17.5, help="Maximum SNR")
+    parser.add_argument("--min_length", type=float, default=4.0, help="Minimum length of speech files in seconds")
+    parser.add_argument("--cut_length", type=float, default=10.0, help="Cut long files to this length in seconds")
+    parser.add_argument("--cutoff_freq", type=float, default=75.0, help="Cutoff frequency for Hi-Pass filter")
+    parser.add_argument("--min_dB", type=float, default=-55.0, help="Minimum loundness threshold for clean speech")
+    parser.add_argument("--sr", type=int, default=48000, help="Sampling rate")
+    parser.add_argument("--16k", action="store_true", help="Set sampling rate to 16kHz")
+    parser.add_argument("--ramp_time_in_ms", type=int, default=10, help="Ramp time in ms")
+    parser.add_argument("--max_time_test_set_in_s", type=int, default=29, help="Maximum time in seconds for the test set")
+    args = parser.parse_args()
+
+    main(args)

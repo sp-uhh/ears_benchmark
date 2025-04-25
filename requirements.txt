@@ -6,4 +6,5 @@ numpy<2.0
 pyloudnorm
 python-sofa
 soundfile
+torchaudio
 tqdm
