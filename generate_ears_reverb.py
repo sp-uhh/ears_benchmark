@@ -127,8 +127,8 @@ def main(args):
     dir = join(args.data_dir, "ACE-Challenge")
     names = ["Chromebook", "Crucif", "EM32", "Lin8Ch", "Mobile", "Single"]
     for name in names:
-        rir_files["test"] += sorted(glob(join(dir, name, "**", "*RIR.wav"), recursive=True))
-
+        rir_files["test"] += sorted(glob(join(dir, f"ACE_Corpus_RIRN_{name}", "**", "*RIR.wav"), recursive=True))
+      
     # AIR dataset
     dir = join(args.data_dir, "AIR", "AIR_1_4", "AIR_wav_files")
     rir_files["valid"] += sorted(glob(join(dir, "*.wav")))
